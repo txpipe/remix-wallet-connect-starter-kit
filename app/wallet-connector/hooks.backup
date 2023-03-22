@@ -1,0 +1,80 @@
+// import { useState, useEffect, useCallback } from 'react';
+// import {
+//     enable,
+//     getAvailableWallets,
+//     getBalance,
+//     getNetwork,
+//     getUsedAddresses,
+//     getUtxos,
+//     signTx as sign,
+//     submitTx as submit,
+// } from './wallets/api.client';
+// import type { TransactionWitnessSet } from './wallets/api.client';
+// import type { WalletInfo, WALLET_IDS } from './wallets/base';
+
+// type State = {
+//     wallets: WalletInfo[];
+//     enabledWallet: WalletInfo;
+//     balance: string;
+//     network: string;
+//     address: string;
+//     error: string;
+//     loading: boolean;
+// };
+
+// export default function useWallets() {
+//     const [state, setState] = useState<Partial<State>>();
+//     const [wallets, setWallets] = useState<WalletInfo[]>();
+//     const [error, setError] = useState();
+
+//     useEffect(() => {
+//         setWallets(getAvailableWallets());
+//     }, []);
+
+//     const mergeState = useCallback((delta: Partial<State>) => {
+//         setState(prev => ({ ...prev, ...delta }));
+//     }, []);
+
+//     const connectWallet = useCallback(async (walletId: WALLET_IDS) => {
+//         try {
+//             // clears the error state
+//             setError(undefined);
+//             mergeState({ loading: true });
+//             const enabledWallet = await enable(walletId);
+//             const [balance, network, addresses] = await Promise.all([getBalance(), getNetwork(), getUsedAddresses()]);
+
+//             mergeState({
+//                 enabledWallet,
+//                 balance,
+//                 network,
+//                 address: addresses[0],
+//                 loading: false,
+//             });
+//             // Enables the wallet
+//         } catch (error: any) {
+//             setError(error.message || 'unknown error');
+//         }
+//     }, []);
+
+//     const signTx = useCallback(async (cbor: string) => {
+//         return await sign(cbor);
+//     }, []);
+
+//     const submitTx = useCallback(async (cbor: string, witness: TransactionWitnessSet) => {
+//         return await submit(cbor, witness);
+//     }, []);
+
+//     return {
+//         connectWallet,
+//         wallets,
+//         enabledWallet: state?.enabledWallet,
+//         balance: state?.balance,
+//         network: state?.network,
+//         address: state?.address,
+//         loading: state?.loading,
+//         error,
+//         signTx,
+//         submitTx,
+//         getUtxos,
+//     };
+// }

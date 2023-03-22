@@ -1,0 +1,51 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+    .wrapper {
+        @apply container mx-auto px-4 sm:px-6 max-w-7xl;
+    }
+    .wrapper-wide {
+        @apply container mx-auto px-4 sm:px-6 max-w-7xl;
+    }
+    .wrapper-full {
+        @apply w-full px-4 sm:px-6;
+    }
+    .shadow-xs-txpink {
+        @apply shadow-[0_0_8px_0_rgba(221,98,253,0.5)];
+    }
+    .shadow-sm-txpink {
+        @apply shadow-[0_0_15px_0_rgba(221,98,253,0.5)];
+    }
+    .box-black {
+        @apply rounded-md bg-gray-900 p-6;
+    }
+    .title-md {
+        @apply text-xl font-medium tracking-wide;
+    }
+    .btn-primary {
+        @apply h-11 px-5 flex items-center w-fit bg-txpink2 hover:bg-opacity-70 text-gray-100 uppercase text-sm font-bold rounded-md disabled:bg-gray-700 disabled:text-gray-400 disabled:cursor-not-allowed focus:outline-none focus:ring-1 focus:ring-blue-900 focus:ring-opacity-75 transition-all select-none;
+    }
+    .btn-secondary {
+        @apply h-11 px-5 flex items-center w-fit bg-gray-800 text-accent2 hover:bg-opacity-50 uppercase text-sm font-semibold rounded-md disabled:bg-gray-700 disabled:text-gray-400 disabled:cursor-not-allowed focus:outline-none focus:ring-1 focus:ring-blue-900 focus:ring-opacity-75 transition-all select-none;
+    }
+    .box-red {
+        @apply rounded-md bg-red-600 bg-opacity-5 p-6;
+      }
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+    -webkit-box-shadow: 0 0 0px 1000px #272727 inset !important;
+    -webkit-text-fill-color: #e5e5e5;
+    border-radius: 6px;
+    transition: background-color 5000s ease-in-out 0s;
+}
