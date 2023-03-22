@@ -1,6 +1,6 @@
 # Wallet Connect Starter Kit
 
-This Starter Kits shows how you can connect a browser with some of the main wallets available in Cardano by implementing a simple Remix[https://remix.run] application.
+This Starter Kits shows how you can connect a browser with some of the main wallets available in Cardano by implementing a simple [Remix](https://remix.run) application.
 
 It implements some of the methods defined in the [CIP-30 Cardano dApp-Wallet Web Bridge](https://cips.cardano.org/cips/cip30/) for showing the wallet state and information in the web browser.
 
