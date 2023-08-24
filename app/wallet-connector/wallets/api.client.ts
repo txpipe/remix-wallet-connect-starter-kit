@@ -3,7 +3,6 @@ import { SUPPORTED_WALLETS } from '.';
 import type { WALLET_IDS, Wallet, WalletMetadata } from './base';
 import { WalletNotAvailableError, WalletNotEnabledError } from './errors';
 
-
 interface CIP30 {
     getBalance(): Promise<Number>;
     getNetworkId(): Promise<Number>;

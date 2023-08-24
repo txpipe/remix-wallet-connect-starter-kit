@@ -6,25 +6,21 @@ import { geroWallet } from "./gero";
 import { namiWallet } from "./nami";
 import { typhonWallet } from "./typhon";
 import { yoroiWallet } from "./yoroi";
+import { laceWallet } from "~/wallet-connector/wallets/lace";
 
 export const SUPPORTED_WALLETS = [
-  cardWallet,
-  eternlWallet,
-  flintWallet,
-  geroWallet,
-  namiWallet,
-  typhonWallet,
-  yoroiWallet,
+    cardWallet,
+    eternlWallet,
+    flintWallet,
+    geroWallet,
+    namiWallet,
+    typhonWallet,
+    yoroiWallet,
+    laceWallet
 ];
 
 export function getAvailableWallets(): WalletMetadata[] {
-  const result: WalletMetadata[] = [];
-
-  SUPPORTED_WALLETS.forEach((wallet) => {
-    if (wallet.isAvailable()) {
-      result.push(wallet.getMetadata());
-    }
-  });
-
-  return result;
+    return SUPPORTED_WALLETS
+        .filter(wallet => wallet.isAvailable())
+        .map(wallet => wallet.getMetadata())
 }
