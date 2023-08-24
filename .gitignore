@@ -1,5 +1,9 @@
 node_modules
 
+# ignore all jetbrains specific files
+.idea/
+*.iml
+
 /.cache
 /build
 /public/build

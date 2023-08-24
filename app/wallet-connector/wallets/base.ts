@@ -6,6 +6,7 @@ export enum WALLET_IDS {
     Nami = 'nami',
     Typhon = 'typhon',
     Yoroi = 'yoroi',
+    Lace = 'lace'
 }
 
 export type WalletMetadata = {
